@@ -40,18 +40,66 @@ const crearProyecto = async(req, res = response) => {
 
 const actualizarProyecto = async(req, res = response) => {
 
-    res.json({
-        ok: true,
-        msg: 'actualizarProyectos'
-    })
+    const id = req.params.id;
+    try {
+
+        const proyecto = await Proyecto.findById(id);
+
+        if (!proyecto) {
+            return res.status(404).json({
+                ok: true,
+                msg: 'Proyeto no encontrado por id'
+            });
+        }
+
+        const cambiosProyecto = {
+            ...req.body
+        }
+
+        const proyectoActualizado = await Proyecto.findByIdAndUpdate(id, cambiosProyecto, { new: true });
+
+        res.json({
+            ok: true,
+            proyectoActualizado
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el admin'
+        })
+    }
 };
 
 const borrarProyecto = async(req, res = response) => {
 
-    res.json({
-        ok: true,
-        msg: 'borrarProyectos'
-    })
+    const id = req.params.id;
+    try {
+
+        const proyecto = await Proyecto.findById(id);
+
+        if (!proyecto) {
+            return res.status(404).json({
+                ok: true,
+                msg: 'Proyeto no encontrado por id'
+            });
+        }
+
+        await Proyecto.findByIdAndDelete(id);
+
+        res.json({
+            ok: true,
+            msg: 'Proyecto eliminado'
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el admin'
+        })
+    }
 };
 
 module.exports = {

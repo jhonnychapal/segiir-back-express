@@ -24,17 +24,25 @@ router.post('/', [
         validarJWT,
         check('nombre', 'El nombre del proyecto es obligatorio').not().isEmpty(),
         check('director', 'El id del director debe ser válido').isMongoId(),
-        check('met[]', 'El id del miembro del equipo debe ser válido').isMongoId(),
+        check('met.*', 'El id del miembro del equipo debe ser válido').isMongoId(),
         validarCampos
     ],
     crearProyecto
 );
 
-router.put('/:id', [],
+router.put('/:id', [
+        validarJWT,
+        check('nombre', 'El nombre del proyecto es obligatorio').not().isEmpty(),
+        check('director', 'El id del director debe ser válido').isMongoId(),
+        check('met.*', 'El id del miembro del equipo debe ser válido').isMongoId(),
+        validarCampos
+    ],
     actualizarProyecto
 );
 
-router.delete('/:id',
+router.delete('/:id', [
+        validarJWT,
+    ],
     borrarProyecto
 );
 
