@@ -18,6 +18,11 @@ const ProyectoSchema = Schema({
         required: true,
         type: Schema.Types.ObjectId,
         ref: 'Usuario'
+    }],
+    actividades: [{
+        required: true,
+        type: Schema.Types.ObjectId,
+        ref: 'Actividad'
     }]
 });
 

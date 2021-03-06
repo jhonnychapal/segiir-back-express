@@ -8,16 +8,9 @@ const getUsuarios = async(req, res) => {
 
     const desde = Number(req.query.desde) || 0;
 
-
-    // const usuarios = await Usuario
-    //     .find({}, 'nombre apellido')
-    //     .skip(desde).limit(10);
-
-    // const total = await Usuario.count();
-
     const [usuarios, total] = await Promise.all([
-        Usuario.find({}, 'nombre apellido')
-        .skip(desde).limit(10),
+        Usuario.find({}, 'nombre apellido email estado admin')
+        .skip(desde).limit(5),
 
         Usuario.count()
     ]);
