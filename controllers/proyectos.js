@@ -465,6 +465,97 @@ const actualizarProyecto = async(req, res = response) => {
 
         const proyectoActualizado = await Proyecto.findByIdAndUpdate(id, cambiosProyecto, { new: true });
 
+        const actividadesAux = req.body.actividades;
+        
+        // Id Tareas
+        const tarea1Id = actividadesAux[0].tarea[0]._id;
+        const tarea2Id = actividadesAux[0].tarea[1]._id;
+        const tarea3Id = actividadesAux[1].tarea[0]._id;
+        const tarea4Id = actividadesAux[1].tarea[1]._id;
+        const tarea5Id = actividadesAux[2].tarea[0]._id;
+        const tarea6Id = actividadesAux[2].tarea[1]._id;
+        const tarea7Id = actividadesAux[2].tarea[2]._id;
+        const tarea8Id = actividadesAux[3].tarea[0]._id;
+        const tarea9Id = actividadesAux[3].tarea[1]._id;
+        const tarea10Id = actividadesAux[4].tarea[0]._id;
+        const tarea11Id = actividadesAux[4].tarea[1]._id;
+        const tarea12Id = actividadesAux[4].tarea[2]._id;
+        const tarea13Id = actividadesAux[5].tarea[0]._id;
+        const tarea14Id = actividadesAux[6].tarea[0]._id;
+        const tarea15Id = actividadesAux[7].tarea[0]._id;
+        const tarea16Id = actividadesAux[7].tarea[1]._id;
+        const tarea17Id = actividadesAux[8].tarea[0]._id;
+        const tarea18Id = actividadesAux[9].tarea[0]._id;
+        const tarea19Id = actividadesAux[10].tarea[0]._id;
+        const tarea20Id = actividadesAux[11].tarea[0]._id;
+        const tarea21Id = actividadesAux[12].tarea[0]._id;
+        const tarea22Id = actividadesAux[12].tarea[1]._id;
+        const tarea23Id = actividadesAux[13].tarea[0]._id;
+        const tarea24Id = actividadesAux[14].tarea[0]._id;
+        const tarea25Id = actividadesAux[15].tarea[0]._id;
+        const tarea26Id = actividadesAux[16].tarea[0]._id;
+        const tarea27Id = actividadesAux[17].tarea[0]._id;
+
+        //Estado tareas
+
+        const tarea1Realizada = actividadesAux[0].tarea[0].realizada;
+        const tarea2Realizada = actividadesAux[0].tarea[1].realizada;
+        const tarea3Realizada = actividadesAux[1].tarea[0].realizada;
+        const tarea4Realizada = actividadesAux[1].tarea[1].realizada;
+        const tarea5Realizada = actividadesAux[2].tarea[0].realizada;
+        const tarea6Realizada = actividadesAux[2].tarea[1].realizada;
+        const tarea7Realizada = actividadesAux[2].tarea[2].realizada;
+        const tarea8Realizada = actividadesAux[3].tarea[0].realizada;
+        const tarea9Realizada = actividadesAux[3].tarea[1].realizada;
+        const tarea10Realizada = actividadesAux[4].tarea[0].realizada;
+        const tarea11Realizada = actividadesAux[4].tarea[1].realizada;
+        const tarea12Realizada = actividadesAux[4].tarea[2].realizada;
+        const tarea13Realizada = actividadesAux[5].tarea[0].realizada;
+        const tarea14Realizada = actividadesAux[6].tarea[0].realizada;
+        const tarea15Realizada = actividadesAux[7].tarea[0].realizada;
+        const tarea16Realizada = actividadesAux[7].tarea[1].realizada;
+        const tarea17Realizada = actividadesAux[8].tarea[0].realizada;
+        const tarea18Realizada = actividadesAux[9].tarea[0].realizada;
+        const tarea19Realizada = actividadesAux[10].tarea[0].realizada;
+        const tarea20Realizada = actividadesAux[11].tarea[0].realizada;
+        const tarea21Realizada = actividadesAux[12].tarea[0].realizada;
+        const tarea22Realizada = actividadesAux[12].tarea[1].realizada;
+        const tarea23Realizada = actividadesAux[13].tarea[0].realizada;
+        const tarea24Realizada = actividadesAux[14].tarea[0].realizada;
+        const tarea25Realizada = actividadesAux[15].tarea[0].realizada;
+        const tarea26Realizada = actividadesAux[16].tarea[0].realizada;
+        const tarea27Realizada = actividadesAux[17].tarea[0].realizada;
+
+        //Actualizaciónd de tareas
+
+        const tarea1Actualizada = await Tarea.findByIdAndUpdate(tarea1Id, {realizada:tarea1Realizada}, { new: true });
+        const tarea2Actualizada = await Tarea.findByIdAndUpdate(tarea2Id, {realizada:tarea2Realizada}, { new: true });
+        const tarea3Actualizada = await Tarea.findByIdAndUpdate(tarea3Id, {realizada:tarea3Realizada}, { new: true });
+        const tarea4Actualizada = await Tarea.findByIdAndUpdate(tarea4Id, {realizada:tarea4Realizada}, { new: true });
+        const tarea5Actualizada = await Tarea.findByIdAndUpdate(tarea5Id, {realizada:tarea5Realizada}, { new: true });
+        const tarea6Actualizada = await Tarea.findByIdAndUpdate(tarea6Id, {realizada:tarea6Realizada}, { new: true });
+        const tarea7Actualizada = await Tarea.findByIdAndUpdate(tarea7Id, {realizada:tarea7Realizada}, { new: true });
+        const tarea8Actualizada = await Tarea.findByIdAndUpdate(tarea8Id, {realizada:tarea8Realizada}, { new: true });
+        const tarea9Actualizada = await Tarea.findByIdAndUpdate(tarea9Id, {realizada:tarea9Realizada}, { new: true });
+        const tarea10Actualizada = await Tarea.findByIdAndUpdate(tarea10Id, {realizada:tarea10Realizada}, { new: true });
+        const tarea11Actualizada = await Tarea.findByIdAndUpdate(tarea11Id, {realizada:tarea11Realizada}, { new: true });
+        const tarea12Actualizada = await Tarea.findByIdAndUpdate(tarea12Id, {realizada:tarea12Realizada}, { new: true });
+        const tarea13Actualizada = await Tarea.findByIdAndUpdate(tarea13Id, {realizada:tarea13Realizada}, { new: true });
+        const tarea14Actualizada = await Tarea.findByIdAndUpdate(tarea14Id, {realizada:tarea14Realizada}, { new: true });
+        const tarea15Actualizada = await Tarea.findByIdAndUpdate(tarea15Id, {realizada:tarea15Realizada}, { new: true });
+        const tarea16Actualizada = await Tarea.findByIdAndUpdate(tarea16Id, {realizada:tarea16Realizada}, { new: true });
+        const tarea17Actualizada = await Tarea.findByIdAndUpdate(tarea17Id, {realizada:tarea17Realizada}, { new: true });
+        const tarea18Actualizada = await Tarea.findByIdAndUpdate(tarea18Id, {realizada:tarea18Realizada}, { new: true });
+        const tarea19Actualizada = await Tarea.findByIdAndUpdate(tarea19Id, {realizada:tarea19Realizada}, { new: true });
+        const tarea20Actualizada = await Tarea.findByIdAndUpdate(tarea20Id, {realizada:tarea20Realizada}, { new: true });
+        const tarea21Actualizada = await Tarea.findByIdAndUpdate(tarea21Id, {realizada:tarea21Realizada}, { new: true });
+        const tarea22Actualizada = await Tarea.findByIdAndUpdate(tarea22Id, {realizada:tarea22Realizada}, { new: true });
+        const tarea23Actualizada = await Tarea.findByIdAndUpdate(tarea23Id, {realizada:tarea23Realizada}, { new: true });
+        const tarea24Actualizada = await Tarea.findByIdAndUpdate(tarea24Id, {realizada:tarea24Realizada}, { new: true });
+        const tarea25Actualizada = await Tarea.findByIdAndUpdate(tarea25Id, {realizada:tarea25Realizada}, { new: true });
+        const tarea26Actualizada = await Tarea.findByIdAndUpdate(tarea26Id, {realizada:tarea26Realizada}, { new: true });
+        const tarea27Actualizada = await Tarea.findByIdAndUpdate(tarea27Id, {realizada:tarea27Realizada}, { new: true });
+
         res.json({
             ok: true,
             proyectoActualizado

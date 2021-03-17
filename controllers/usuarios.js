@@ -23,6 +23,22 @@ const getUsuarios = async(req, res) => {
     });
 };
 
+const getUsuariosList = async(req, res) => {
+
+    const desde = Number(req.query.desde) || 0;
+
+    const [usuarios, total] = await Promise.all([
+        Usuario.find({}, 'nombre apellido email estado admin'),
+        Usuario.count()
+    ]);
+
+    res.json({
+        ok: true,
+        usuarios,
+        total
+    });
+};
+
 const crearUsuario = async(req, res = response) => {
 
     const { nombre, apellido, email, password, estado, admin } = req.body;
@@ -145,4 +161,5 @@ module.exports = {
     crearUsuario,
     actualizarUsuario,
     borrarUsuario,
+    getUsuariosList
 }

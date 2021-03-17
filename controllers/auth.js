@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const Usuario = require('../models/usuario');
 const { generarJWT } = require('../helpers/jwt');
+const { getMenuFrontEnd } = require('../helpers/menu-frontend');
 
 
 const login = async(req, res = response) => {
@@ -34,7 +35,9 @@ const login = async(req, res = response) => {
 
         res.json({
             ok: true,
-            token
+            token,
+            usuario: usuarioDB,
+            menu: getMenuFrontEnd( usuarioDB.admin )
         });
     } catch (error) {
         console.log(error);
@@ -58,7 +61,8 @@ const renewToken = async(req, res = response) => {
     res.json({
         ok: true,
         token,
-        usuario
+        usuario,
+        menu: getMenuFrontEnd( usuario.admin )
     });
 }
 
