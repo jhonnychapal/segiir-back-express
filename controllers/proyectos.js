@@ -56,8 +56,6 @@ const getProyectoById = async(req, res = response) => {
 
 const crearProyecto = async(req, res = response) => {
 
-
-
     try {
 
         // ACTIVIDAD 1
@@ -439,13 +437,15 @@ const crearProyecto = async(req, res = response) => {
         console.log(error);
         res.status(500).json({
             ok: false,
-            msg: 'Hable con el admin'
+            msg: 'Hable con el administrador'
         });
     }
 
 };
 
 const actualizarProyecto = async(req, res = response) => {
+
+    console.time("prueba")
 
     const id = req.params.id;
     try {
@@ -528,33 +528,39 @@ const actualizarProyecto = async(req, res = response) => {
 
         //Actualizaciónd de tareas
 
-        const tarea1Actualizada = await Tarea.findByIdAndUpdate(tarea1Id, {realizada:tarea1Realizada}, { new: true });
-        const tarea2Actualizada = await Tarea.findByIdAndUpdate(tarea2Id, {realizada:tarea2Realizada}, { new: true });
-        const tarea3Actualizada = await Tarea.findByIdAndUpdate(tarea3Id, {realizada:tarea3Realizada}, { new: true });
-        const tarea4Actualizada = await Tarea.findByIdAndUpdate(tarea4Id, {realizada:tarea4Realizada}, { new: true });
-        const tarea5Actualizada = await Tarea.findByIdAndUpdate(tarea5Id, {realizada:tarea5Realizada}, { new: true });
-        const tarea6Actualizada = await Tarea.findByIdAndUpdate(tarea6Id, {realizada:tarea6Realizada}, { new: true });
-        const tarea7Actualizada = await Tarea.findByIdAndUpdate(tarea7Id, {realizada:tarea7Realizada}, { new: true });
-        const tarea8Actualizada = await Tarea.findByIdAndUpdate(tarea8Id, {realizada:tarea8Realizada}, { new: true });
-        const tarea9Actualizada = await Tarea.findByIdAndUpdate(tarea9Id, {realizada:tarea9Realizada}, { new: true });
-        const tarea10Actualizada = await Tarea.findByIdAndUpdate(tarea10Id, {realizada:tarea10Realizada}, { new: true });
-        const tarea11Actualizada = await Tarea.findByIdAndUpdate(tarea11Id, {realizada:tarea11Realizada}, { new: true });
-        const tarea12Actualizada = await Tarea.findByIdAndUpdate(tarea12Id, {realizada:tarea12Realizada}, { new: true });
-        const tarea13Actualizada = await Tarea.findByIdAndUpdate(tarea13Id, {realizada:tarea13Realizada}, { new: true });
-        const tarea14Actualizada = await Tarea.findByIdAndUpdate(tarea14Id, {realizada:tarea14Realizada}, { new: true });
-        const tarea15Actualizada = await Tarea.findByIdAndUpdate(tarea15Id, {realizada:tarea15Realizada}, { new: true });
-        const tarea16Actualizada = await Tarea.findByIdAndUpdate(tarea16Id, {realizada:tarea16Realizada}, { new: true });
-        const tarea17Actualizada = await Tarea.findByIdAndUpdate(tarea17Id, {realizada:tarea17Realizada}, { new: true });
-        const tarea18Actualizada = await Tarea.findByIdAndUpdate(tarea18Id, {realizada:tarea18Realizada}, { new: true });
-        const tarea19Actualizada = await Tarea.findByIdAndUpdate(tarea19Id, {realizada:tarea19Realizada}, { new: true });
-        const tarea20Actualizada = await Tarea.findByIdAndUpdate(tarea20Id, {realizada:tarea20Realizada}, { new: true });
-        const tarea21Actualizada = await Tarea.findByIdAndUpdate(tarea21Id, {realizada:tarea21Realizada}, { new: true });
-        const tarea22Actualizada = await Tarea.findByIdAndUpdate(tarea22Id, {realizada:tarea22Realizada}, { new: true });
-        const tarea23Actualizada = await Tarea.findByIdAndUpdate(tarea23Id, {realizada:tarea23Realizada}, { new: true });
-        const tarea24Actualizada = await Tarea.findByIdAndUpdate(tarea24Id, {realizada:tarea24Realizada}, { new: true });
-        const tarea25Actualizada = await Tarea.findByIdAndUpdate(tarea25Id, {realizada:tarea25Realizada}, { new: true });
-        const tarea26Actualizada = await Tarea.findByIdAndUpdate(tarea26Id, {realizada:tarea26Realizada}, { new: true });
-        const tarea27Actualizada = await Tarea.findByIdAndUpdate(tarea27Id, {realizada:tarea27Realizada}, { new: true });
+        const actualizacionTareas = await Promise.all([
+            Tarea.findByIdAndUpdate(tarea1Id, {realizada:tarea1Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea2Id, {realizada:tarea2Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea3Id, {realizada:tarea3Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea4Id, {realizada:tarea4Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea5Id, {realizada:tarea5Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea6Id, {realizada:tarea6Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea7Id, {realizada:tarea7Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea8Id, {realizada:tarea8Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea9Id, {realizada:tarea9Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea10Id, {realizada:tarea10Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea11Id, {realizada:tarea11Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea12Id, {realizada:tarea12Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea13Id, {realizada:tarea13Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea14Id, {realizada:tarea14Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea15Id, {realizada:tarea15Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea16Id, {realizada:tarea16Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea17Id, {realizada:tarea17Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea18Id, {realizada:tarea18Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea19Id, {realizada:tarea19Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea20Id, {realizada:tarea20Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea21Id, {realizada:tarea21Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea22Id, {realizada:tarea22Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea23Id, {realizada:tarea23Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea24Id, {realizada:tarea24Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea25Id, {realizada:tarea25Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea26Id, {realizada:tarea26Realizada}, { new: true }),
+            Tarea.findByIdAndUpdate(tarea27Id, {realizada:tarea27Realizada}, { new: true })
+        ]);
+
+        
+
+        console.timeEnd("prueba")
 
         res.json({
             ok: true,
@@ -565,7 +571,7 @@ const actualizarProyecto = async(req, res = response) => {
         console.log(error);
         res.status(500).json({
             ok: false,
-            msg: 'Hable con el admin'
+            msg: 'Hable con el administrador'
         })
     }
 };
@@ -595,7 +601,7 @@ const borrarProyecto = async(req, res = response) => {
         console.log(error);
         res.status(500).json({
             ok: false,
-            msg: 'Hable con el admin'
+            msg: 'Hable con el administrador'
         })
     }
 
