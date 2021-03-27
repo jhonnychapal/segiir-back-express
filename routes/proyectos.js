@@ -7,7 +7,7 @@ const { Router } = require('express');
 const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar-campos');
 
-const { validarJWT } = require('../middlewares/validar-jwt');
+const { validarJWT,varlidarAdmin } = require('../middlewares/validar-jwt');
 
 const {
     getProyectos,
@@ -23,6 +23,7 @@ router.get('/', validarJWT, getProyectos);
 
 router.post('/', [
         validarJWT,
+        varlidarAdmin,
         check('nombre', 'El nombre del proyecto es obligatorio').not().isEmpty(),
         check('director', 'El id del director debe ser válido').isMongoId(),
         check('met.*', 'El id del miembro del equipo debe ser válido').isMongoId(),
@@ -34,8 +35,6 @@ router.post('/', [
 router.put('/:id', [
         validarJWT,
         check('nombre', 'El nombre del proyecto es obligatorio').not().isEmpty(),
-        check('director', 'El id del director debe ser válido').isMongoId(),
-        check('met.*', 'El id del miembro del equipo debe ser válido').isMongoId(),
         validarCampos
     ],
     actualizarProyecto
@@ -44,6 +43,7 @@ router.put('/:id', [
 router.delete('/:id', [
         validarJWT,
     ],
+    varlidarAdmin,
     borrarProyecto
 );
 
