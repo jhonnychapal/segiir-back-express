@@ -94,7 +94,7 @@ const resetPassword = async(req, res = response) =>{
                 port: 465,
                 auth: {
                 user: 'segiir.rup@gmail.com',
-                pass: 'Sr543210'
+                pass: 'AdminSeGIIR2021*'
                 }
             });
             var mailOptions = {
@@ -104,7 +104,7 @@ const resetPassword = async(req, res = response) =>{
                 text: 'Hola ' + usuarioDB.nombre + '\n\n' + 
                 'Tu has recibido este correo porque tu (o alguien más) has solicitado recuperar la contraseña de tu cuenta.\n\n' +
                 'Por favor haz click en el siguiente enlace o copialo en tu navegador para completar el proceso:\n\n' +
-                'http://localhost:4200/response-reset-password/' + resettoken.resettoken + '\n\n' +
+                'https://backend-segiir.herokuapp.com/response-reset-password/' + resettoken.resettoken + '\n\n' +
                 'Si tu no lo solicitaste, por favor ignora este email y tu contraseña permanecera sin ser cambiada.\n\n\n' +
                 'Atentamente, \n' +
                 'SeGIIR - Software' ,
