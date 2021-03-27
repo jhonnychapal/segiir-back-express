@@ -445,6 +445,8 @@ const crearProyecto = async(req, res = response) => {
 
 const actualizarProyecto = async(req, res = response) => {
 
+    console.time("prueba")
+
     const id = req.params.id;
     try {
 
